@@ -25,7 +25,6 @@ class ImageAndNameOFCategoricalBar{
   static final String nameOfPoliticalImage="Political";
 //-------------------------------------------------------------------
 }
-
 //---------------------------------------------------------------
 List<CategoricalBar> nameAndImageOfCategoricalBar=[
   CategoricalBar(nameOfCategorical: 'General' ,pathOfImage:"assets/images/general.png",),
@@ -33,10 +32,6 @@ List<CategoricalBar> nameAndImageOfCategoricalBar=[
   CategoricalBar(nameOfCategorical: 'Exhibition',pathOfImage:"assets/images/Exhibition.png",),
   CategoricalBar(nameOfCategorical: 'Theaters' ,pathOfImage:"assets/images/Theaters.png",),
   CategoricalBar(nameOfCategorical: 'Political' ,pathOfImage:"assets/images/Political.jpg",),
-
-
-
-
 ];
 
 List<String> images = [
@@ -48,15 +43,3 @@ List<String> images = [
 
 ];
 
-List<String> title = [
-  "Jack the Persian and the Black Castel",
-  "The Dreaming Moon",
-  "Jack the Persian and the Black Castel",
-  "Fallen In Love",
-  "The Best Synthetic Brushes For Watercolors Are Reliable And Sturdy",
-  "The Best Synthetic Brushes For Watercolors Are Reliable And Sturdy",
-  "The Best Synthetic Brushes For Watercolors Are Reliable And Sturdy",
-  "The Best Synthetic Brushes For Watercolors Are Reliable And Sturdy",
-  "The Best Synthetic Brushes For Watercolors Are Reliable And Sturdy",
-  "The Best Synthetic Brushes For Watercolors Are Reliable And Sturdy",
-];

@@ -23,16 +23,13 @@ var widgetAspectRatio = cardAspectRatio * 1.2;
 
 class _HomePageState extends State<HomePage> {
   int currentSelectedIndex=0;
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     loadData();
   }
-
   var currentPage = images.length - 1.0;
-
   @override
   Widget build(BuildContext context) {
     PageController controller = PageController(initialPage: images.length - 1);
@@ -112,7 +109,8 @@ class _HomePageState extends State<HomePage> {
                    ],
                     )
               : Center(child: Text("Loading Data ...")),
-          
+
+
 
         ],
       ),
@@ -192,25 +190,27 @@ class CardScrollWidget extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 16.0, vertical: 8.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.3),
-                                      spreadRadius: 40,
-                                      blurRadius: 7,
-                                      offset: Offset(0, 3),
-                                    )
-                                  ],
+                            Flexible(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 16.0, vertical: 8.0),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.3),
+                                        spreadRadius: 40,
+                                        blurRadius: 7,
+                                        offset: Offset(0, 3),
+                                      )
+                                    ],
+                                  ),
+                                  child: Text(model.title,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold)),
                                 ),
-                                child: Text(model.title,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold)),
                               ),
                             ),
                             Padding(
