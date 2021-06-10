@@ -23,7 +23,6 @@ var widgetAspectRatio = cardAspectRatio * 1.2;
 
 class _HomePageState extends State<HomePage> {
   int currentSelectedIndex=0;
-  bool isActive;
 
   @override
   void initState() {
@@ -88,34 +87,30 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           listModel != null
-              ? GestureDetector(
-            onTap: (){
+              ? Stack(
+                   children: <Widget>[
+                     CardScrollWidget(currentPage),
+                     Positioned.fill(
+                       child: PageView.builder(
+                         itemCount: listModel.length,
+                         controller: controller,
+                         reverse: true,
+                         itemBuilder: (context, index) {
+                           return  GestureDetector(
+                               behavior: HitTestBehavior.translucent,
+                               onTap: (){
+                             Navigator.push(context,
+                                 MaterialPageRoute(builder: (_) => MoreDetailsPage(model: listModel[index])));
+                               },
+                               child:Container()
 
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => MoreDetailsPage(model: model)));
-            },
-            child: Container(
-                     child: Column(
-                       children: <Widget>[
-                         Stack(
-                           children: <Widget>[
-                             CardScrollWidget(currentPage),
-                             Positioned.fill(
-                               child: PageView.builder(
-                                 itemCount: listModel.length,
-                                 controller: controller,
-                                 reverse: true,
-                                 itemBuilder: (context, index) {
-                                   return Container();
-                                 },
-                               ),
-                             )
-                           ],
-                         ),
-                       ],
+                           );
+                         },
+                       ),
                      ),
-                   ),
-              )
+
+                   ],
+                    )
               : Center(child: Text("Loading Data ...")),
           
 
@@ -130,10 +125,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
-  void onPressCallback(Articles model) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (_) => MoreDetailsPage(model: model)));
-  }
+
 }
 
 // ignore: must_be_immutable
